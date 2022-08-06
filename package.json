@@ -1,0 +1,27 @@
+{
+  "name": "cypress__telnyx.com",
+  "version": "1.0.0",
+  "description": "test-cases for telnyx.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teosoph/cypress__telnyx.com.git"
+  },
+  "keywords": [
+    "QA",
+    "cypress",
+    "telnyx"
+  ],
+  "author": "teo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teosoph/cypress__telnyx.com/issues"
+  },
+  "homepage": "https://github.com/teosoph/cypress__telnyx.com#readme",
+  "devDependencies": {
+    "cypress": "^10.4.0"
+  }
+}
