@@ -1,8 +1,9 @@
-import commonPage from "../pages/commonPage";
-import mainPage from "../pages/mainPage";
+import commonPage from "../pages/common.page";
+import mainPage from "../pages/main.page";
 
 describe("TC-004", () => {
   beforeEach(() => {
+    cy.viewport(1920, 1080);
     cy.visit("https://telnyx.com");
     cy.get("body").then(($body) => {
       if ($body.find('[aria-label="close and deny"]').length > 0) {
@@ -11,7 +12,7 @@ describe("TC-004", () => {
     });
   });
 
-  it("Check email registration posibility through `Try for free ->` field with unvalid credentials", () => {
+  it("Check email registration posibility through `Try for free ->` field with invalid credentials", () => {
     mainPage.enterUnvalidEmailToSighUpInput();
     mainPage.checkEnteredUnvalidEmailInSighUpInput();
     mainPage.clickOnTryForFreeButton();

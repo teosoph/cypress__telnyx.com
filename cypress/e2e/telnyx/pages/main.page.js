@@ -1,4 +1,4 @@
-import commonPage from "../pages/commonPage";
+import commonPage from "./common.page";
 
 class MainPage {
   // Sign Up by OnTryForFree with valid credentials
@@ -40,8 +40,30 @@ class MainPage {
   // Sign Up button
   clickOnSignUpButton = () => {
     cy.get('a[href="/sign-up"]').eq(1).click();
-    // cy.get('(//a[text()="Sign up"])[1]').click();
+    // cy.xpath('(//a[text()="Sign up"])[1]').click();
   };
+
+  // Header menu
+  mouseHoverOnHeaderMenuTabs(tabPosition) {
+    cy.get(`header div>ul>li:nth-child(${tabPosition})>span`, {
+      timeout: 10000,
+    }).realHover();
+  }
+  makeHoveredHeaderMenuTabsScreenshot(tabPosition) {
+    cy.xpath(`//header/div[2]/div/div[2]/ul/li[1]/div/div/div[2]`, {
+      timeout: 30000,
+    }).screenshot(`my-screenshot_${tabPosition}`);
+  }
+
+  // Support center
+  clickOnSupportCenterLink() {
+    cy.get(`audio+a[href*='support']`, { timeout: 20000 }).click();
+  }
+
+  // Expert Talk page
+  clickOnTalkToExpertButton() {
+    cy.get(`li>div>a[href*='/contact-us']`, { timeout: 20000 }).click();
+  }
 }
 
 module.exports = new MainPage();

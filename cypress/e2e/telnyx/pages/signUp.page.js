@@ -1,4 +1,4 @@
-import commonPage from "../pages/commonPage";
+import commonPage from "./common.page";
 
 class SignUpPage {
   confirmationMessage = "We've sent you an email to activate your account";

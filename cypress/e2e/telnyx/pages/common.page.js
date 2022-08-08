@@ -1,8 +1,14 @@
 class CommonPage {
+  // ==============================
+
   validUserData = {
-    testEmail: "test45r@test.com",
-    fullName: "Igouur Kirich",
+    testEmail: "test123@test.com",
+    fullName: "Igor Kirich",
     password: "Test1234567890-",
+    firstName: "Igor",
+    lastName: "Kirich",
+    phoneNumber: "677206363",
+    companyWebsite: "https://www.ukr.net",
   };
 
   unvalidUserData = {

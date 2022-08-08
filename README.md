@@ -12,23 +12,39 @@ This project is for e2e testing the functionality of the Telnyx website.
 
 - Download and install [at least Node.js 14](https://nodejs.org/uk/download/)
 
-### How to open and run a project
-
-- Download or clone project from repository
-
-- Open the project folder in VSCode or another IDE
-
-The test scripts are located at: cypress\e2e\telnyx\specs/\*.cy.js
-
-The page objects are in: cypress\e2e\telnyx\pages/\*.page.js
-
-#### Mounting
+### Installing
 
 - In terminal type:
 
 `npm install`
 
-##### run
+`npm init -y`
+
+`cd /your/project/path`
+
+`npm install cypress --save-dev`
+
+- To make mouseHover be working is needed to be installed RealHover by Dmitriy Kovalenko:
+
+`npm install cypress-real-events`
+
+- And register new commands by adding this to your cypress/support/e2e.js file:
+
+`import "cypress-real-events/support";`
+
+#### How to open and run a project
+
+- Download or clone project from repository
+
+- Open the project folder in VSCode or another IDE
+
+The test scripts are located at:
+cypress\e2e\telnyx\specs/\*.cy.js
+
+The page objects are in:
+cypress\e2e\telnyx\pages/\*.page.js
+
+##### Run
 
 - Launch Cypress with the following commands in the terminal:
 

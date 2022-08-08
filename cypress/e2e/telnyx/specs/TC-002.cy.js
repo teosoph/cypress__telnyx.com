@@ -1,7 +1,8 @@
-import mainPage from "../pages/mainPage";
+import mainPage from "../pages/main.page";
 
 describe("TC-002", () => {
   beforeEach(() => {
+    cy.viewport(1920, 1080);
     cy.visit("https://telnyx.com");
     cy.get("body").then(($body) => {
       if ($body.find('[aria-label="close and deny"]').length > 0) {
