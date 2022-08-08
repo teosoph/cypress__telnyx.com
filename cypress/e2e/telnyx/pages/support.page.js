@@ -6,12 +6,10 @@ class SupportPage {
   };
 
   fillSearchInput() {
-    cy.get('[class*="search__input"]')
-      .type(commonPage.randomData())
-      .type("{enter}");
+    cy.get('[class*="search__input"]').type(commonPage.getRandomData()).type("{enter}");
   }
   checkSearchInputData = () => {
-    cy.get('[class="c__light"]').should("have.text", commonPage.randomData());
+    cy.get('[class="c__light"]').should("have.text", commonPage.getRandomData());
   };
 }
 
