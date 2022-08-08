@@ -1,8 +1,6 @@
 import commonPage from "./common.page";
 
 class SignUpPage {
-  confirmationMessage = "We've sent you an email to activate your account";
-
   checkRedirectionToSignUpPage = (urlSignUpPage) => {
     cy.url({ timeout: 20000 }).should("include", urlSignUpPage);
     cy.contains("button[type='submit']", "Create Account").should("be.visible");
@@ -21,13 +19,24 @@ class SignUpPage {
     cy.get('[aria-labelledby="terms-label"] rect').click();
 
     //   has a problem with click
-    cy.get('button[type="submit"]').click({ force: true });
+    // cy.get('button[type="submit"]').trigger("mouseover");
+    // cy.get('button[type="submit"]').click({ force: true });
+    cy.get('button[type="submit"]')
+      .scrollIntoView()
+      .each((element) => {
+        cy.wrap(element).click();
+      });
+    // cy.get('button[type="submit"]').then((element) => {
+    //   element.click();
+    // });
+    // cy.get('button[type="submit"]').scrollIntoView().click({ force: true });
+    cy.wait(5000);
   };
 
   checkMessageAfterSignUp = () => {
-    cy.get('h1[class="Text-sc-5o8owa-0 sc-81d2e95d-1 gkWopw etvJmf"]').should(
+    cy.get("div>h1").should(
       "have.text",
-      this.confirmationMessage
+      "We've sent you an email to activate your account"
     );
   };
 

@@ -6,10 +6,7 @@ class MainPage {
     cy.get('input[name="email"]').type(commonPage.validUserData["testEmail"]);
   };
   checkEnteredValidEmailInSighUpInput = () => {
-    cy.get('input[name="email"]').should(
-      "have.value",
-      commonPage.validUserData["testEmail"]
-    );
+    cy.get('input[name="email"]').should("have.value", commonPage.validUserData["testEmail"]);
   };
   clickOnTryForFreeButton = () => {
     cy.get('[type="submit"]').click();
@@ -20,10 +17,7 @@ class MainPage {
     cy.get('input[name="email"]').type(commonPage.unvalidUserData["testEmail"]);
   };
   checkEnteredUnvalidEmailInSighUpInput = () => {
-    cy.get('input[name="email"]').should(
-      "have.value",
-      commonPage.unvalidUserData["testEmail"]
-    );
+    cy.get('input[name="email"]').should("have.value", commonPage.unvalidUserData["testEmail"]);
   };
   clickOnTryForFreeButton = () => {
     cy.get('[type="submit"]').click();
@@ -31,17 +25,12 @@ class MainPage {
 
   // Footer
   checkFooterProductsMenuItemsName(position, itemName) {
-    //  Timed out retrying after 4000ms: expected '<span>' to have text 'Elastic SIP Trunking', but the text was 'Elastic SIP Trunking '
-
     // cy.xpath(
     //   `(//p[text()='Products']/following-sibling::ul//span//span)[${position}]`
     // ).then(function ($elem) {
     //   cy.log($elem.text());
     // });
-
-    cy.xpath(
-      `(//p[text()='Products']/following-sibling::ul//span//span)[${position}]`
-    ).should("contain.text", `${itemName}`);
+    cy.xpath(`(//p[text()='Products']/following-sibling::ul//span//span)[${position}]`).should("contain.text", `${itemName}`);
   }
 
   // Sign Up button
@@ -53,7 +42,7 @@ class MainPage {
   // Header menu
   mouseHoverOnHeaderMenuTabs(tabPosition) {
     cy.get(`header div>ul>li:nth-child(${tabPosition})>span`, {
-      timeout: 10000,
+      timeout: 30000,
     }).realHover();
   }
   makeHoveredHeaderMenuTabsScreenshot(tabPosition) {
@@ -70,6 +59,40 @@ class MainPage {
   // Expert Talk page
   clickOnTalkToExpertButton() {
     cy.get(`li>div>a[href*='/contact-us']`, { timeout: 20000 }).click();
+  }
+
+  // Voice Call Costs
+  scrollDownToSwitchSaveWithTelnyxBlock() {
+    cy.get("h2>a>span", { timeout: 30000 }).scrollIntoView();
+  }
+  makeCompareCostBlockScreenshot(index) {
+    cy.xpath(`//h2/a/following::div[1]/div/div`, {
+      timeout: 50000,
+    }).screenshot(`CompareCosts-screenshot_${index}`);
+  }
+  clickOnVoiceButton() {
+    cy.xpath(`//button[contains(text(),"Voice")]`).click();
+  }
+  clickOnTollFreeNumbersRadioButton() {
+    cy.get(`[id="toll-free-numbers"]`).click();
+  }
+  shiftMakeOutboundCallsSlider(shiftIndex) {
+    return cy.get(`[role*='slider']`).eq(1).type("{rightarrow}".repeat(shiftIndex), { force: true });
+  }
+  makeCompareCostBlockScreenshot(index) {
+    cy.xpath(`//h2/a/following::div[1]/div/div`, {
+      timeout: 50000,
+    }).screenshot(`CompareCosts-screenshot_${index}`);
+  }
+  clickOnCreateFreeTrialAccountButton() {
+    cy.xpath('//a[contains(text(),"Create")]').click();
+  }
+  checkRedirectedPageForLink() {
+    cy.url({ timeout: 30000 }).should("include", "sign-up");
+  }
+  // Wait List
+  clickOnJoinWaitListLink() {
+    cy.get('span>a[href="/products/storage"]').click();
   }
 }
 
