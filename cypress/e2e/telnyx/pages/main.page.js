@@ -13,11 +13,11 @@ class MainPage {
   };
 
   // Sign Up by OnTryForFree with unvalid credentials
-  enterUnvalidEmailToSighUpInput = () => {
-    cy.get('input[name="email"]').type(commonPage.unvalidUserData["testEmail"]);
+  enterInvalidEmailToSighUpInput = () => {
+    cy.get('input[name="email"]').type(commonPage.invalidUserData["testEmail"]);
   };
-  checkEnteredUnvalidEmailInSighUpInput = () => {
-    cy.get('input[name="email"]').should("have.value", commonPage.unvalidUserData["testEmail"]);
+  checkEnteredInvalidEmailInSighUpInput = () => {
+    cy.get('input[name="email"]').should("have.value", commonPage.invalidUserData["testEmail"]);
   };
   clickOnTryForFreeButton = () => {
     cy.get('[type="submit"]').click();

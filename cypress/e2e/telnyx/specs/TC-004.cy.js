@@ -13,8 +13,8 @@ describe("TC-004", () => {
   });
 
   it("Check email registration posibility through `Try for free ->` field with invalid credentials", () => {
-    mainPage.enterUnvalidEmailToSighUpInput();
-    mainPage.checkEnteredUnvalidEmailInSighUpInput();
+    mainPage.enterInvalidEmailToSighUpInput();
+    mainPage.checkEnteredInvalidEmailInSighUpInput();
     mainPage.clickOnTryForFreeButton();
     commonPage.checkLinkForContains("/sign-up");
   });
