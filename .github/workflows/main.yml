@@ -14,7 +14,7 @@ jobs:
       - run: npm ci
 #      - run: npm config set script-shell "C:\Program Files\Git\bin\bash.exe"
       - name: run test
-        run: npm run test:headless # Our name of the headless script
+        run: npx cypress run --spec  cypress/e2e/telnyx/specs/*.cy.js # Our name of the headless script
       - name: Copy History
         if: always()
         run: cp -r $(pwd)/docs/history/. $(pwd)/allure-results/history
