@@ -21,3 +21,11 @@ import "./commands";
 
 require("cypress-xpath");
 import "cypress-real-events/support";
+
+Cypress.Server.defaults({
+  delay: 500,
+  force404: false,
+  ignore: (xhr) => {
+    return true;
+  },
+});

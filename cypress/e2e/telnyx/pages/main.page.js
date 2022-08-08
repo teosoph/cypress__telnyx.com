@@ -32,9 +32,16 @@ class MainPage {
   // Footer
   checkFooterProductsMenuItemsName(position, itemName) {
     //  Timed out retrying after 4000ms: expected '<span>' to have text 'Elastic SIP Trunking', but the text was 'Elastic SIP Trunking '
+
+    // cy.xpath(
+    //   `(//p[text()='Products']/following-sibling::ul//span//span)[${position}]`
+    // ).then(function ($elem) {
+    //   cy.log($elem.text());
+    // });
+
     cy.xpath(
       `(//p[text()='Products']/following-sibling::ul//span//span)[${position}]`
-    ).should("have.text", `${itemName}`);
+    ).should("contain.text", `${itemName}`);
   }
 
   // Sign Up button
