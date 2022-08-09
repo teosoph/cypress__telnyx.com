@@ -53,7 +53,7 @@ class MainPage {
 
   // Support center
   clickOnSupportCenterLink() {
-    cy.get(`audio+a[href*='support']`, { timeout: 20000 }).click();
+    cy.get(`audio+a[href*='support']`, { timeout: 20000 }).realHover().click();
   }
 
   // Expert Talk page

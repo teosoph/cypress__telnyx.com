@@ -17,7 +17,7 @@ class ExpertPage {
     cy.get('[id="Phone_Number_Base__c"]').type(commonPage.validUserData["phoneNumber"]);
     cy.get('[id="Website"]').type(commonPage.validUserData["companyWebsite"]);
     cy.get('[id="Use_Case_Form__c"]').select("Video");
-    cy.get(['id="Form_Additional_Information__c"']).type(commonPage.getRandomData());
+    // cy.get(['id="Form_Additional_Information__c"']).type(commonPage.getRandomData());
     cy.get('[name="Subscription_Opt_In__c"]').click();
   }
   // Fill invalid data
@@ -29,7 +29,7 @@ class ExpertPage {
     cy.get('[id="Phone_Number_Base__c"]').type(commonPage.invalidUserData["phoneNumber"]);
     cy.get('[id="Website"]').type(commonPage.invalidUserData["companyWebsite"]);
     cy.get('[id="Use_Case_Form__c"]').select("Video");
-    cy.get('[id="Form_Additional_Information__c"]').type(commonPage.getRandomData());
+    // cy.get('[id="Form_Additional_Information__c"]').type(commonPage.getRandomData());
     cy.get('[name="Subscription_Opt_In__c"]').click();
   }
 
@@ -37,8 +37,11 @@ class ExpertPage {
     cy.get('[type="submit"]').click();
   }
 
+  checkValidDataEntering = () => {
+    cy.get(`main>div>h1`).should("contain.text", "Thanks for Reaching Out!");
+  };
   checkInvalidDataEntering = () => {
-    cy.get(`[id="ValidMsgEmail"]`).should("have.text", "Must be valid email.");
+    cy.get(`[id="ValidMsgEmail"]`).should("contain.text", "Must be valid email.");
   };
 }
 

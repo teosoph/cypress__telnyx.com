@@ -18,6 +18,6 @@ describe("TC-007", () => {
     expertPage.markChooseReasonContactDropMenu();
     expertPage.fillValidDataToInputFields();
     expertPage.clickOnSubmitButton();
-    expertPage.checkSubmitPageTitle();
+    expertPage.checkValidDataEntering();
   });
 });
